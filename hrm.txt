@@ -2,4 +2,9 @@ fully customized hrm tools for hr management - author -rits
 change done by satyam
 little change by shubhjeet
 i am RAM
+<<<<<<< HEAD
 this is Ramji
+=======
+this abhishek
+im priyanka choureybb
+>>>>>>> 5533329100893a14e72b917503bd0113eed7d27b
