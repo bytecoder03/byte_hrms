@@ -1,4 +1,4 @@
-package com.byteCoder.SatyamBoot.Dto;
+package com.byteCoder.hrms.Dto;
 
 import java.io.IOException;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.byteCoder.SatyamBoot.Dao.DaoOne;
+import com.byteCoder.hrms.Dao.DaoOne;
 
 @Service
 public class StudentService 

@@ -1,4 +1,4 @@
-package com.byteCoder.SatyamBoot.Controller;
+package com.byteCoder.hrms.Controller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.byteCoder.SatyamBoot.Dao.DaoOne;
-import com.byteCoder.SatyamBoot.Dto.StudentDetails;
+import com.byteCoder.hrms.Dao.DaoOne;
+import com.byteCoder.hrms.Dto.StudentDetails;
 
 
 

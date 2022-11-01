@@ -1,4 +1,4 @@
-package com.byteCoder.SatyamBoot.Controller;
+package com.byteCoder.hrms.Controller;
 
 import java.util.List;
 import java.util.Map;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.byteCoder.SatyamBoot.Dto.StudentDetails;
-import com.byteCoder.SatyamBoot.Dto.StudentService;
-import com.byteCoder.SatyamBoot.Dto.helper;
+import com.byteCoder.hrms.Dto.StudentDetails;
+import com.byteCoder.hrms.Dto.StudentService;
+import com.byteCoder.hrms.Dto.helper;
 
 @RestController
 @CrossOrigin("*")

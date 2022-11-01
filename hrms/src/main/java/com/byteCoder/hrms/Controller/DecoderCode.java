@@ -1,4 +1,4 @@
-package com.byteCoder.SatyamBoot.Controller;
+package com.byteCoder.hrms.Controller;
 
 import java.util.Base64;
 

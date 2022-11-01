@@ -1,4 +1,4 @@
-package com.byteCoder.SatyamBoot.Dto;
+package com.byteCoder.hrms.Dto;
 
 
 	import javax.persistence.Entity;

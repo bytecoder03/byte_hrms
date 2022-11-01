@@ -1,13 +1,13 @@
-package com.byteCoder.SatyamBoot;
+package com.byteCoder.hrms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SatyamBootApplication {
+public class HRMSBootApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SatyamBootApplication.class, args);
+		SpringApplication.run(HRMSBootApplication.class, args);
 		System.out.println("start");
 	}
 

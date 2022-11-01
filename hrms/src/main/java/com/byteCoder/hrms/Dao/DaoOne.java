@@ -1,9 +1,9 @@
-package com.byteCoder.SatyamBoot.Dao;
+package com.byteCoder.hrms.Dao;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.byteCoder.SatyamBoot.Dto.StudentDetails;
+import com.byteCoder.hrms.Dto.StudentDetails;
 
 public interface DaoOne extends CrudRepository<StudentDetails, Integer>
 {
