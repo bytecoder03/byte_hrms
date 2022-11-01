@@ -8,3 +8,24 @@ this is Ramji
 this abhishek
 im priyanka choureybb
 >>>>>>> 5533329100893a14e72b917503bd0113eed7d27b
+<<<<<<< HEAD
+
+mohan solanki
+
+=======
+hellos
+>>>>>>> 9ae53657ad7da71714fb3654108b564baa518ac5
+cgdgd
+<<<<<<< HEAD
+i am mohan trying again
+=======
+Badi mintto ke baad hua hai bhai mohan solanki ka
+i am ankit
+my new changes
+>>>>>>> 4bde998d7af75fa8d5032c66a3080e8d53c374b9
+
+
+
+i am again try it 
+
+<html lang = "en">111
