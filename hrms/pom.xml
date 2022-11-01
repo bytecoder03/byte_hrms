@@ -7,12 +7,14 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.7.3</version>
-		<relativePath /> <!-- lookup parent from repository -->
+			<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.byteCoder</groupId>
-	<artifactId>SatyamBoot</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>hrm</artifactId>
+	<version>0.0.1</version>
 	<name>SatyamBoot</name>
+	<packaging>jar</packaging>
+	
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
