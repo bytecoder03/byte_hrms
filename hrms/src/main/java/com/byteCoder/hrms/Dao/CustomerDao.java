@@ -10,4 +10,3 @@ public Customer findByMobileNoOrEmail(long  mobileNo,String email);
 	
 }
 
-

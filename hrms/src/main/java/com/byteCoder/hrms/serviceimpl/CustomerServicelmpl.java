@@ -18,7 +18,7 @@ public class CustomerServicelmpl implements CustomerService {
 	@Override
     public Customer doCustomerRegistration(Customer customer) {
 
-        Customer alredyPresent = customerDao.findByMobileNoOrEmail(customer.getMobileNo(), customer.getEmail());
+        Customer alredyPresent = customerDao.findByMobileNoOrEmail(customer.getMobileNo(),customer.getEmail());
         if(alredyPresent ==null)
         {    
             customer = customerDao.save(customer);
