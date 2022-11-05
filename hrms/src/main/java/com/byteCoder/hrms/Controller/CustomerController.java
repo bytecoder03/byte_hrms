@@ -9,78 +9,73 @@ import org.springframework.web.bind.annotation.RestController;
 import com.byteCoder.hrms.Dto.Response;
 import com.byteCoder.hrms.exception.UserAlreadyRegistered;
 import com.byteCoder.hrms.model.Customer;
-import com.byteCoder.hrms.serviceimpl.CustomerServicelmpl;
-import com.byteCoder.hrms.util.Constant;
+import com.byteCoder.hrms.service.CustomerService;
+import com.byteCoder.hrms.util.Constants;
 import com.byteCoder.hrms.util.Validation;
+
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/customer")
+@Slf4j
 public class CustomerController {
 
+
 	@Autowired
-	CustomerServicelmpl customerServiceImpl;
+	CustomerService customerservice;
 
-	@PostMapping("/do_reg")
-	public Response doCustomerRegistration(@RequestBody Customer customer) {
-
-		Response response = null;
-
-		try {
-			
-			String EmailRegexPattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@" 
-                    + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
-			
-            String PhoneRegexPattern= Long.toString(customer.getMobileNo());
-            
-            boolean mobVal=Validation.isValidMobileNo(PhoneRegexPattern);
-            boolean mailVal=Validation.patternMatches(customer.getEmail(),EmailRegexPattern );
-            
-            boolean fnameVal=customer.getFname().isBlank();
-            boolean lnameVal=customer.getLname().isBlank();
-            
-            if(mobVal==false)
-            {
-                response= new Response(Constant.EXCEPTIONCODE, Constant.FAILED, "Invalid phone number", null);
-                return response;
-            }
-            else if(mailVal==false)
-            {
-                response= new Response(Constant.EXCEPTIONCODE, Constant.FAILED, "Invalid EmailId ", null);
-                 return response;
-            }
-            else if(fnameVal==true)
-            {
-            	response= new Response(Constant.EXCEPTIONCODE, Constant.FAILED, "first name is blank", null);
-            }
-            else if(lnameVal==true)
-            {
-            	response= new Response(Constant.EXCEPTIONCODE,Constant.FAILED, "last name is blank", null);
-            }
-            else
-            
-            {
-			Customer c= customerServiceImpl.doCustomerRegistration(customer);
-			response = new Response(Constant.SUCCESSCODE,Constant.SUCCESS,"RegistrationSuccessfull",c);
-			return response;
-            }
-		}
-        catch(UserAlreadyRegistered e)
+		@PostMapping("/do-reg")
+		public Response doCustomerRegistration(@RequestBody Customer customer)
 		{
-        	e.printStackTrace();
-            response = new Response(Constant.EXCEPTIONCODE,Constant.FAILED, "Email or mobile no already register.", null);
-            return response;
-		}
-		catch (Exception e)
-		{
-			
-			e.printStackTrace();
-			response = new Response(Constant.EXCEPTIONCODE,Constant.FAILED, "registration failed", null);
-			return response;
-		}
-		return response; 
+			log.info("doCustomerRegistration : " + customer);
+			Response response = null;
+			try
+			{
 
+				if(customer.getFname() == null || customer.getFname().trim() == ""  ||
+						customer.getLname() == null || customer.getLname().trim() == "" ||
+						customer.getEmail()==null || customer.getEmail().trim()=="")
+				{
+					response  = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "Missing Input details", null);
+					return response;
+				}
+
+				String mobileNo= Long.toString(customer.getMobileNo());
+				boolean mobVal=Validation.isValidMobileNo(mobileNo);
+				boolean mailVal=Validation.isValidEmail(customer.getEmail());
+
+				if(mobVal==false)
+				{
+					response  = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "Invalid mobile number", null);
+					log.debug("doCustomerRegistration : Invalid mobile number" + customer.getMobileNo());
+					return response;
+				}
+				if(mailVal==false)
+				{
+					response  = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "Invalid email", null);
+					log.debug("doCustomerRegistration : Invalid email" + customer.getEmail());
+					return response;
+				}
+
+				Customer c =  customerservice.doCustomerRegistration(customer);
+				response  = new Response(Constants.SUCCESSCODE, Constants.SUCCESS, "Registraion successful", c);
+				log.info("doCustomerRegistration : Registraion successful");
+				return response;
+			}
+
+			catch (UserAlreadyRegistered e) {
+				e.printStackTrace();
+				response = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "Email or mobile no already register.", null);
+				log.error("exception in doCustomerRegistration " + e.getMessage());
+				return response;
+			}
+
+			catch (Exception e) {
+				e.printStackTrace();
+				response = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "Registraion failed", null);
+				log.error("exception in doCustomerRegistration " + e.getMessage());
+				return response;
+			}
+		}
 
 	}
-
-
-}

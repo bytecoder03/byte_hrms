@@ -1,6 +1,6 @@
 package com.byteCoder.hrms.util;
 
-public interface Constant {
+public interface Constants {
 
 	int SUCCESSCODE = 200;
     int EXCEPTIONCODE  = 1010;

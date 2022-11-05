@@ -8,28 +8,35 @@ import com.byteCoder.hrms.exception.UserAlreadyRegistered;
 import com.byteCoder.hrms.model.Customer;
 import com.byteCoder.hrms.service.CustomerService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class CustomerServicelmpl implements CustomerService {
 
 	@Autowired
 	CustomerDao customerDao;
-	
-	
+
 	@Override
-    public Customer doCustomerRegistration(Customer customer) {
+	public Customer doCustomerRegistration(Customer customer) throws UserAlreadyRegistered {
 
-        Customer alredyPresent = customerDao.findByMobileNoOrEmail(customer.getMobileNo(),customer.getEmail());
-        if(alredyPresent ==null)
-        {    
-            customer = customerDao.save(customer);
-            return customer;
-        }
+		log.info("doCustomerRegistration : start");
 
-        else
-        {
-            throw new UserAlreadyRegistered();
-        }
+		Customer alreadyPresent =	  customerDao.findByMobileNoOrEmail(customer.getMobileNo(), customer.getEmail());
+		if(alreadyPresent == null)
+		{	
+			customer = customerDao.save(customer);
+			log.info("doCustomerRegistration : end");
+			return customer;
+		}
 
-    }
+		else
+		{
+			log.debug("doCustomerRegistration : user already exist"  + alreadyPresent);
+			throw new UserAlreadyRegistered();
 
+		}
+
+
+	}
 }

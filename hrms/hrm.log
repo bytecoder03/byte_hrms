@@ -1,0 +1,87 @@
+2022-11-05 12:09:17.451  INFO 19300 --- [restartedMain] com.byteCoder.hrms.HRMSBootApplication   : Starting HRMSBootApplication using Java 17.0.4 on LAPTOP-LULOJNQ4 with PID 19300 (C:\Users\Abhishek\Desktop\hrms\byte_hrms\hrms\target\classes started by Abhishek in C:\Users\Abhishek\Desktop\hrms\byte_hrms\hrms)
+2022-11-05 12:09:17.453  INFO 19300 --- [restartedMain] com.byteCoder.hrms.HRMSBootApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-11-05 12:09:17.527  INFO 19300 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-11-05 12:09:17.528  INFO 19300 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-11-05 12:09:18.348  INFO 19300 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-05 12:09:18.435  INFO 19300 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 1 JPA repository interfaces.
+2022-11-05 12:09:18.997  WARN 19300 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'errorPageCustomizer' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/error/ErrorMvcAutoConfiguration.class]: Unsatisfied dependency expressed through method 'errorPageCustomizer' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dispatcherServletRegistration' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.autoconfigure.web.servlet.DispatcherServletRegistrationBean]: Factory method 'dispatcherServletRegistration' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties': Could not bind properties to 'MultipartProperties' : prefix=spring.servlet.multipart, ignoreInvalidFields=false, ignoreUnknownFields=false; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.servlet.multipart.max-request-size' to org.springframework.util.unit.DataSize
+2022-11-05 12:09:19.009  INFO 19300 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-11-05 12:09:19.043 ERROR 19300 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.servlet.multipart.max-request-size' to org.springframework.util.unit.DataSize:
+
+    Property: spring.servlet.multipart.max-request-size
+    Value: "10M"
+    Origin: class path resource [application.properties] - 15:43
+    Reason: failed to convert java.lang.String to org.springframework.util.unit.DataSize (caused by java.lang.IllegalArgumentException: Unknown data unit suffix 'M')
+
+Action:
+
+Update your application's configuration
+
+2022-11-05 12:09:43.636  INFO 22952 --- [restartedMain] com.byteCoder.hrms.HRMSBootApplication   : Starting HRMSBootApplication using Java 17.0.4 on LAPTOP-LULOJNQ4 with PID 22952 (C:\Users\Abhishek\Desktop\hrms\byte_hrms\hrms\target\classes started by Abhishek in C:\Users\Abhishek\Desktop\hrms\byte_hrms\hrms)
+2022-11-05 12:09:43.641  INFO 22952 --- [restartedMain] com.byteCoder.hrms.HRMSBootApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-11-05 12:09:43.752  INFO 22952 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-11-05 12:09:43.753  INFO 22952 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-11-05 12:09:44.648  INFO 22952 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-05 12:09:44.716  INFO 22952 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 1 JPA repository interfaces.
+2022-11-05 12:09:45.306  WARN 22952 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'errorPageCustomizer' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/error/ErrorMvcAutoConfiguration.class]: Unsatisfied dependency expressed through method 'errorPageCustomizer' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dispatcherServletRegistration' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.autoconfigure.web.servlet.DispatcherServletRegistrationBean]: Factory method 'dispatcherServletRegistration' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties': Could not bind properties to 'MultipartProperties' : prefix=spring.servlet.multipart, ignoreInvalidFields=false, ignoreUnknownFields=false; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'spring.servlet.multipart.max-request-size' to org.springframework.util.unit.DataSize
+2022-11-05 12:09:45.326  INFO 22952 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-11-05 12:09:45.371 ERROR 22952 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.servlet.multipart.max-request-size' to org.springframework.util.unit.DataSize:
+
+    Property: spring.servlet.multipart.max-request-size
+    Value: "10M"
+    Origin: class path resource [application.properties] - 15:43
+    Reason: failed to convert java.lang.String to org.springframework.util.unit.DataSize (caused by java.lang.IllegalArgumentException: Unknown data unit suffix 'M')
+
+Action:
+
+Update your application's configuration
+
+2022-11-05 12:10:25.030  INFO 8692 --- [restartedMain] com.byteCoder.hrms.HRMSBootApplication   : Starting HRMSBootApplication using Java 17.0.4 on LAPTOP-LULOJNQ4 with PID 8692 (C:\Users\Abhishek\Desktop\hrms\byte_hrms\hrms\target\classes started by Abhishek in C:\Users\Abhishek\Desktop\hrms\byte_hrms\hrms)
+2022-11-05 12:10:25.033  INFO 8692 --- [restartedMain] com.byteCoder.hrms.HRMSBootApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-11-05 12:10:25.104  INFO 8692 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-11-05 12:10:25.104  INFO 8692 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-11-05 12:10:25.901  INFO 8692 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-05 12:10:25.981  INFO 8692 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 1 JPA repository interfaces.
+2022-11-05 12:10:26.781  INFO 8692 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-05 12:10:26.797  INFO 8692 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-11-05 12:10:26.798  INFO 8692 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-11-05 12:10:26.910  INFO 8692 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-11-05 12:10:26.911  INFO 8692 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1806 ms
+2022-11-05 12:10:27.205  INFO 8692 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-05 12:10:27.305  INFO 8692 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-11-05 12:10:27.592  INFO 8692 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-05 12:10:27.786  INFO 8692 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-11-05 12:10:29.850  INFO 8692 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-11-05 12:10:29.897  INFO 8692 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2022-11-05 12:10:31.339  INFO 8692 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-05 12:10:31.354  INFO 8692 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-05 12:10:32.001  WARN 8692 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-11-05 12:10:32.473  INFO 8692 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-11-05 12:10:32.541  INFO 8692 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-05 12:10:32.560  INFO 8692 --- [restartedMain] com.byteCoder.hrms.HRMSBootApplication   : Started HRMSBootApplication in 8.113 seconds (JVM running for 9.292)
+2022-11-05 12:10:32.566  INFO 8692 --- [restartedMain] com.byteCoder.hrms.HRMSBootApplication   : HRMSBootApplication stated
+2022-11-05 12:11:57.101  INFO 8692 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2022-11-05 12:11:57.121  INFO 8692 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-11-05 12:11:57.135  INFO 8692 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-11-05 12:11:57.141  INFO 8692 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-11-05 12:11:58.534  INFO 8692 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
