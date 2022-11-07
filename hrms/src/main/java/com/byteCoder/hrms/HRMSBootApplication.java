@@ -12,7 +12,7 @@ public class HRMSBootApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HRMSBootApplication.class, args);
 		System.out.println("start");
-		log.info("HRMSBootApplication stated");
+		log.info("HRMSBootApplication started");
 	}
 
 }
