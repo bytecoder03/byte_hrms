@@ -18,170 +18,151 @@ import com.byteCoder.hrms.service.DailyMealsService;
 import com.byteCoder.hrms.util.Constants;
 
 import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 @RestController
-public class DailyMealsController 
-{
+public class DailyMealsController {
 	@Autowired
 	DailyMealsService dailyMealsService;
-	
-	Response response= new Response();
+
+	Response response = new Response();
+
 	@PostMapping("/add-daily-meals")
-	public Response addDailyMeals(@RequestBody DailyMeals dailyMeals)
-	{
-		log.info("addDailyMeals");
-		DailyMeals addDailyMealss=dailyMealsService.addDailyMeals(dailyMeals);
+	public Response addDailyMeals(@RequestBody DailyMeals dailyMeals) {
+		log.info("add-daily-meals");
+		DailyMeals addDailyMealss = dailyMealsService.addDailyMeals(dailyMeals);
+
+		
 		try {
-		if(addDailyMealss.getTodaysMeal().isEmpty()) {
-		
-		
-		response  = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "Empty Data", null);
-		log.info("addDailyMeals: No data");
-		
-		return response;
-		}
-		else
-		{
-			response  = new Response(Constants.SUCCESSCODE, Constants.SUCCESS, "Added Successfully", addDailyMealss);
-			log.info("addDailyMeals: Data Added Successfully");
-			return response;
-		}
-		}
-		catch (Exception e) {
+			if(dailyMeals.getTodaysMeal()==null||dailyMeals.getTodaysMeal().trim()=="") {
+				
+				response = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "Empty Data", null);
+				log.info("addDailyMeals: No data");
+			}
+			
+			
+			if (addDailyMealss.getTodaysMeal().isEmpty()) {
+
+				response = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "Empty Data", null);
+				log.info("addDailyMeals: No data");
+
+				return response;
+			} else {
+				response = new Response(Constants.SUCCESSCODE, Constants.SUCCESS, "Added Successfully", addDailyMealss);
+				log.info("addDailyMeals: Data Added Successfully");
+				return response;
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 			response = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "failed", null);
 			log.error("exception in addDailyMeals " + e.getMessage());
 			return response;
 		}
-		
+
 	}
-	
-	
+
 	@DeleteMapping("/delete-daily-meals-by-id")
-    public Response deleteDailyMeals(@RequestParam(required = true) int dailyMealsId)
-	{
+	public Response deleteDailyMeals(@RequestParam(required = true) int dailyMealsId) {
 		log.info("deleteDailyMeals");
-		try
-		{
-			
-		boolean s=dailyMealsService.deleteDailyMeals(dailyMealsId);
-		if(s==true)
-		{
-		response  = new Response(Constants.SUCCESSCODE, Constants.SUCCESS, "deleted Successfully",null);
-		log.info("deleteMealPlans: Data deleted Successfully"+dailyMealsId);
-		return response;
-		}
-		else
-		{
-			response = new Response(Constants.SUCCESSCODE, Constants.SUCCESS, "No data found",null);
-			log.info("deleteMealPlans: No data found"+dailyMealsId);
-			return response;
-		}
-		}
-		catch (Exception e) {
+		try {
+
+			boolean s = dailyMealsService.deleteDailyMeals(dailyMealsId);
+			if (s == true) {
+				response = new Response(Constants.SUCCESSCODE, Constants.SUCCESS, "deleted Successfully", dailyMealsId);
+				log.info("deleteDailyMeals: Data deleted Successfully" + dailyMealsId);
+				return response;
+			} else {
+				response = new Response(Constants.SUCCESSCODE, Constants.SUCCESS, "No data found", null);
+				log.info("deleteDailyMeals: No data found" + dailyMealsId);
+				return response;
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
-			response = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "failed",null);
-			log.error("exception in deleteMealPlans " + e.getMessage());
+			response = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "failed", null);
+			log.error("exception in deleteDailyMeals " + e.getMessage());
 			return response;
 		}
-		
+
 	}
+
 	@GetMapping("/get-daily-meals")
-	public Response getDailyMeals()
-	{
-		List<DailyMeals> dailyMealsList= dailyMealsService.getDailyMeals();
-		
-		try
-		{
+	public Response getDailyMeals() {
+		List<DailyMeals> dailyMealsList = dailyMealsService.getDailyMeals();
+
+		try {
 			log.info("getDailyMeals");
-			if(dailyMealsList.isEmpty()==false)
-			{
-				response  = new Response(Constants.SUCCESSCODE, Constants.SUCCESS, "Daily Meals Plan", dailyMealsList);
+			if (dailyMealsList.isEmpty() == false) {
+				response = new Response(Constants.SUCCESSCODE, Constants.SUCCESS, "Daily Meals Plan", dailyMealsList);
 				log.info("getDailyMeals: Data Fetched Successfully");
 
 				return response;
-			}
-			else
-			{
-				response  = new Response(Constants.SUCCESSCODE, Constants.SUCCESS, "No Daily Meal Plans ", null);
+			} else {
+				response = new Response(Constants.SUCCESSCODE, Constants.SUCCESS, "No Daily Meal Plans ", null);
 				log.info("getDailyMeals: Data Fetched Successfully: No data Found");
 				return response;
 			}
-			
-		}
-		catch (Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
-			response = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "failed",null);
+			response = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "failed", null);
 			log.error("exception in deleteMealPlans " + e.getMessage());
 			return response;
 		}
-		
-		
+
 	}
-	
+
 	@GetMapping("/get-daily-meals-by-id")
-	public Response getDailyMealsById(@RequestParam(required = true) int dailyMealsId)
-	{
-		Optional<DailyMeals> dailyMealsOpt= dailyMealsService.getDailyMealsById(dailyMealsId);
-		
-		try
-		{
+	public Response getDailyMealsById(@RequestParam(required = true) int dailyMealsId) {
+		Optional<DailyMeals> dailyMealsOpt = dailyMealsService.getDailyMealsById(dailyMealsId);
+
+		try {
 			log.info("getDailyMealsById");
-			if(dailyMealsOpt.isEmpty()==false)
-			{
-				response  = new Response(Constants.SUCCESSCODE, Constants.SUCCESS, "Daily Meals Plans By Id", dailyMealsOpt);
+			if (dailyMealsOpt.isPresent() == false) {
+				response = new Response(Constants.SUCCESSCODE, Constants.SUCCESS,
+						"No Daily Meal Plans found with this id", null);
 				log.info("getDailyMealsById: Data Fetched Successfully");
 
 				return response;
-			}
-			else
-			{
-				response  = new Response(Constants.SUCCESSCODE, Constants.SUCCESS, "No Daily Meal Plans found with this id", dailyMealsOpt);
+			} else {
+				response = new Response(Constants.SUCCESSCODE, Constants.SUCCESS, "Daily Meal Plans found with this id",
+						dailyMealsOpt);
 				log.info("getDailyMealsById: Data Fetched Successfully: No data Found");
 				return response;
 			}
-			
-		}
-		catch (Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
-			response = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "failed",null);
+			response = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "failed", null);
 			log.error("exception in getDailyMealsById " + e.getMessage());
 			return response;
 		}
-		
-		
+
 	}
-	
+
 	@PutMapping("/update-daily-meals")
-	public Response updateDailyMeals(@RequestBody DailyMeals dailyMeals)
-	{
+	public Response updateDailyMeals(@RequestBody DailyMeals dailyMeals) {
 		log.info("updateDailyMeals");
-		DailyMeals updateDailyMealss=dailyMealsService.addDailyMeals(dailyMeals);
+		DailyMeals updateDailyMealss = dailyMealsService.addDailyMeals(dailyMeals);
 		try {
-		if(updateDailyMealss.getTodaysMeal().isEmpty()) {
-		
-		
-		response  = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "Empty Data", null);
-		log.info("updateDailyMeals: No data");
-		
-		return response;
-		}
-		else
-		{
-			response  = new Response(Constants.SUCCESSCODE, Constants.SUCCESS, "updated Successfully", updateDailyMealss);
-			log.info("updateDailyMeals: Data updated Successfully");
-			return response;
-		}
-		}
-		catch (Exception e) {
+			if (updateDailyMealss.getTodaysMeal().isEmpty()) {
+
+				response = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "Empty Data", null);
+				log.info("updateDailyMeals: No data");
+
+				return response;
+			} else {
+				response = new Response(Constants.SUCCESSCODE, Constants.SUCCESS, "updated Successfully",
+						updateDailyMealss);
+				log.info("updateDailyMeals: Data updated Successfully");
+				return response;
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 			response = new Response(Constants.EXCEPTIONCODE, Constants.FAILED, "failed", null);
 			log.error("exception in updateDailyMeals " + e.getMessage());
 			return response;
 		}
-		
-	}
 
-	
+	}
 
 }

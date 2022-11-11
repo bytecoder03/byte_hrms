@@ -7,9 +7,9 @@ import com.byteCoder.hrms.model.DailyMeals;
 
 public interface DailyMealsService 
 {
-DailyMeals addDailyMeals(DailyMeals dailyMealsPLans);
-boolean deleteDailyMeals(int dailyMealsId);
-List<DailyMeals> getDailyMeals();
-Optional<DailyMeals> getDailyMealsById(int dailyMealsId);
+	DailyMeals addDailyMeals(DailyMeals dailyMealsPlans);
+	boolean deleteDailyMeals(int dailyMealsId);
+	List<DailyMeals> getDailyMeals();
+	Optional<DailyMeals> getDailyMealsById(int dailyMealsId);
 
 }

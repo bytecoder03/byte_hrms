@@ -19,52 +19,52 @@ public class DailyMealsServiceImpl implements DailyMealsService{
 	DailyMealsDao dailyMealsDao;
 
 	@Override
-	public DailyMeals addDailyMeals(DailyMeals dailyMealsPLans) {
-		
+	public DailyMeals addDailyMeals(DailyMeals dailyMealsPlans) {
+
 		log.info("addDailyMeals : start");
-		dailyMealsPLans=dailyMealsDao.save(dailyMealsPLans);
+		dailyMealsPlans=dailyMealsDao.save(dailyMealsPlans);
 		log.info("addDailyMeals:end");
-		return dailyMealsPLans;
+		return dailyMealsPlans;
 	}
 
 	@Override
 	public boolean deleteDailyMeals(int dailyMealsId) {
-		
+
 		Optional<DailyMeals> dailyMealsIds=dailyMealsDao.findById(dailyMealsId);
-		
-		
+
+
 		if(dailyMealsIds.isPresent())
 		{
-		log.info("deleteDailyMeals : start");
-		dailyMealsDao.deleteById(dailyMealsId);
-		log.info("deleteDailyMeals : start");
-		return true;
+			log.info("deleteDailyMeals : start");
+			dailyMealsDao.deleteById(dailyMealsId);
+			log.info("deleteDailyMeals : end");
+			return true;
 		}
-		 else
-		  {
-			  return false;
-		  }
-		
+		else
+		{
+			return false;
+		}
+
 	}
 
 	@Override
 	public List<DailyMeals> getDailyMeals() {
 		log.info("getDailyMeals : start");
 		List<DailyMeals> listDailyMeals=dailyMealsDao.findAll();
-		log.info("getDailyMeals");
+		log.info("getDailyMeals : end");
 		return listDailyMeals;
-		
+
 	}
 
 	@Override
 	public Optional<DailyMeals> getDailyMealsById(int dailyMealsId) {
 		log.info("getDailyMealsById : start");
 		Optional<DailyMeals> listDailyMealsId=dailyMealsDao.findById(dailyMealsId);
-		log.info("getDailyMealsById");
+		log.info("getDailyMealsById : end");
 		return listDailyMealsId;
 	}
-	
-	
-	
+
+
+
 
 }

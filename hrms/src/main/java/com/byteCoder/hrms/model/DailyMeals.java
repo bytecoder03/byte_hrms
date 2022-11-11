@@ -20,5 +20,5 @@ public class DailyMeals
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int dailyMealsId;
-    private String todaysMeal;
+	private String todaysMeal;
 }
